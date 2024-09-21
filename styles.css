@@ -20,6 +20,19 @@ body {
   perspective: 1000px;
 }
 
+@media (max-width: 720px){
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--dark-color);
+    overflow: hidden;
+    perspective: 1000px;
+  }
+}
+
+
 .night {
   position: fixed;
   left: 50%;
@@ -40,6 +53,7 @@ body {
 .flowers {
   position: relative;
   transform: scale(0.9);
+  margin-top: calc(150px + 10vh); /* Asegúrate de que haya espacio suficiente para el mensaje */
 }
 
 .flower {
@@ -52,18 +66,26 @@ body {
 
 .message {
   background: #fce700;
-  bottom: 50px;
+  width: 90%;
+  bottom: 15vh; /* Ajusta la distancia desde la parte inferior */
   font-family: "Poppins", sans-serif;
-  font-size: 40px;
-  font-style: normal;
+  font-size: calc(1rem + 1vw); /* Tamaño de fuente responsivo */
   font-weight: 800;
-  height: 60px;
-  line-height: 1;
-  padding: 10px;
-  position: absolute;
+  border-radius: 20px;
+  text-align: center;
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  padding: calc(10px + 1vmin); /* Espaciado responsivo */
+  position: absolute; /* Mantiene el mensaje en relación al contenedor */
   opacity: 0; /* El elemento empieza invisible */
   animation: fadeIn 1s forwards;
-  animation-delay: 2s; /* El elemento aparecerá después de 60 segundos */
+  animation-delay: 2s; /* El elemento aparecerá después de un tiempo */
+}
+
+@media (max-width: 720px) {
+  .message {
+      bottom: 15vh; /* Ajusta según sea necesario en pantallas más pequeñas */
+      font-size: calc(0.8rem + 2vw); /* Aumenta el tamaño de fuente en pantallas pequeñas */
+  }
 }
 
 @keyframes fadeIn {
